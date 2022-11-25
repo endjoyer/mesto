@@ -1,0 +1,10 @@
+.element {
+  padding: 3px 0 0;
+  margin: 0;
+}
+
+@media (max-width: 619px) {
+  .element {
+    padding: 0;
+  }
+}
