@@ -2,7 +2,7 @@
   display: inline-flex;
   width: 24px;
   height: 24px;
-  margin: 0 0 0 18px;
+  margin: 8px 0 0 18px;
   background: url(../../../images/edit-batton.svg) no-repeat center;
   transition: all 0.3s ease 0s;
 }
@@ -11,9 +11,15 @@
   opacity: 0.6;
 }
 
+@media (max-width: 621px) {
+  .profile__edit-batton {
+    margin: 26px 0 0 18px;
+  }
+}
+
 @media (max-width: 425px) {
   .profile__edit-batton {
-    margin: 0 0 0 10px;
+    margin: 26px 0 0 10px;
     width: 18px;
     height: 18px;
     background-size: 18px;

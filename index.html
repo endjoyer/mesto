@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
+  <script async src="./scripts/index.js"></script>
   <link rel="stylesheet" href="./pages/index.css">
 </head>
 
@@ -18,49 +19,65 @@
       <section class="profile">
         <img class="profile__avatar" src="./images/avatar.jpg" alt="Фотография исследователь">
         <div class="profile__info">
-          <h1 class="profile__title">Жак-Ив Кусто<a class="profile__edit-batton" href="#"></a></h1>
+          <div class="profile__title-container">
+            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <a class="profile__edit-batton" href="#"></a>
+          </div>
           <p class="profile__subtitle">Исследователь океана</p>
         </div>
         <a class="profile__add-batton" href="#"></a>
       </section>
+      <section class="popup">
+        <form class="popup__container">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <img src="./images/close-icon.svg" class="popup__close">
+          <label class="popup__label">
+            <input class="popup__input" type="text" name="name" value="Жак-Ив Кусто">
+          </label>
+          <label class="popup__label">
+            <input class="popup__input" type="text" name="about-me" value="Исследователь океана">
+          </label>
+          <button class="popup__btn" type="submit">Сохранить</button>
+        </form>
+      </section>
       <section class="elements">
         <div class="element">
-          <img class="element__image" src="./images/place-barcelona.jpg" alt="">
+          <img class="element__image" src="./images/place-barcelona.jpg" alt="Церковь в Барселоне">
           <div class="element__panel">
             <p class="element__name">Барселона</p>
             <a class="element__like" href="#"></a>
           </div>
         </div>
         <div class="element">
-          <img class="element__image" src="./images/place-greece.jpg" alt="">
+          <img class="element__image" src="./images/place-greece.jpg" alt="Руины греческого древнего храма">
           <div class="element__panel">
             <p class="element__name">Греция</p>
             <a class="element__like" href="#"></a>
           </div>
         </div>
         <div class="element">
-          <img class="element__image" src="./images/place-island-of-orleans.jpg" alt="">
+          <img class="element__image" src="./images/place-island-of-orleans.jpg" alt="Заснеженная тундра">
           <div class="element__panel">
             <p class="element__name">Остров Орлеан</p>
             <a class="element__like" href="#"></a>
           </div>
         </div>
         <div class="element">
-          <img class="element__image" src="./images/place-lake-bled.jpg" alt="">
+          <img class="element__image" src="./images/place-lake-bled.jpg" alt="Озеро на фоне замка на островке">
           <div class="element__panel">
             <p class="element__name">Бледское озеро</p>
             <a class="element__like" href="#"></a>
           </div>
         </div>
         <div class="element">
-          <img class="element__image" src="./images/place-vernazza.jpg" alt="">
+          <img class="element__image" src="./images/place-vernazza.jpg" alt="Городок на скалистом утесе у моря">
           <div class="element__panel">
             <p class="element__name">Вернацца</p>
             <a class="element__like" href="#"></a>
           </div>
         </div>
         <div class="element">
-          <img class="element__image" src="./images/place-yellowstone-national-park.jpg" alt="">
+          <img class="element__image" src="./images/place-yellowstone-national-park.jpg" alt="Горячий источник">
           <div class="element__panel">
             <p class="element__name">Йеллоустонский национальный парк</p>
             <a class="element__like" href="#"></a>

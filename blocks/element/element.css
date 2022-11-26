@@ -1,4 +1,5 @@
 .element {
+  display: block;
   padding: 3px 0 0;
   margin: 0;
 }
