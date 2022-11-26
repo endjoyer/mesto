@@ -2,7 +2,7 @@
 
 Интерактивная страница, куда можно добавлять фотографии, удалять их и ставить лайки.
 
-## Ссылка на сайт https://endjoyer.github.io/neural-networks/index.html
+## [Ссылка на сайт](https://endjoyer.github.io/neural-networks/index.html)
 
 **Figma**
 
