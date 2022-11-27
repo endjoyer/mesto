@@ -1,10 +1,14 @@
 .profile__edit-batton {
   display: inline-flex;
-  width: 24px;
+  border: none;
+  outline: none;
+  padding: 0;
+  min-width: 24px;
   height: 24px;
   margin: 8px 0 0 18px;
   background: url(../../../images/edit-batton.svg) no-repeat center;
   transition: all 0.3s ease 0s;
+  cursor: pointer;
 }
 
 .profile__edit-batton:hover {

@@ -1,12 +1,15 @@
 .profile__add-batton {
-  margin-left: auto;
+  margin: 0 0 0 auto;
   box-sizing: border-box;
   width: 150px;
   height: 50px;
-  background: url(../../../images/add-batton.svg) no-repeat center;
-  border: 2px solid #ffffff;
+  background: url(../../../images/add-batton.svg) no-repeat 50% 65%;
+  outline: none;
+  padding: 0;
+  border: 2px solid #fff;
   border-radius: 2px;
   transition: all 0.3s ease 0s;
+  cursor: pointer;
 }
 
 .profile__add-batton:hover {

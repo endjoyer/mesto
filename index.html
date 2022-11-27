@@ -13,7 +13,6 @@
   <div class="page">
     <header class="header">
       <img class="header__logo" src="./images/logo.svg" alt="Лого Mesto">
-      <div class="header__border"></div>
     </header>
     <main class="page__content">
       <section class="profile">
@@ -21,74 +20,76 @@
         <div class="profile__info">
           <div class="profile__title-container">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <a class="profile__edit-batton" href="#"></a>
+            <button class="profile__edit-batton" type="button"></button>
           </div>
           <p class="profile__subtitle">Исследователь океана</p>
         </div>
-        <a class="profile__add-batton" href="#"></a>
-      </section>
-      <section class="popup">
-        <form class="popup__container">
-          <h2 class="popup__title">Редактировать профиль</h2>
-          <img src="./images/close-icon.svg" class="popup__close" alt="Закрытие формы">
-          <label class="popup__label">
-            <input class="popup__input" type="text" name="name" value="Жак-Ив Кусто">
-          </label>
-          <label class="popup__label">
-            <input class="popup__input" type="text" name="about-me" value="Исследователь океана">
-          </label>
-          <button class="popup__btn" type="submit">Сохранить</button>
-        </form>
+        <button class="profile__add-batton" type="button"></button>
       </section>
       <section class="elements">
-        <div class="element">
-          <img class="element__image" src="./images/place-barcelona.jpg" alt="Церковь в Барселоне">
-          <div class="element__panel">
-            <p class="element__name">Барселона</p>
-            <a class="element__like" href="#"></a>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="./images/place-greece.jpg" alt="Руины греческого древнего храма">
-          <div class="element__panel">
-            <p class="element__name">Греция</p>
-            <a class="element__like" href="#"></a>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="./images/place-island-of-orleans.jpg" alt="Заснеженная тундра">
-          <div class="element__panel">
-            <p class="element__name">Остров Орлеан</p>
-            <a class="element__like" href="#"></a>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="./images/place-lake-bled.jpg" alt="Озеро на фоне замка на островке">
-          <div class="element__panel">
-            <p class="element__name">Бледское озеро</p>
-            <a class="element__like" href="#"></a>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="./images/place-vernazza.jpg" alt="Городок на скалистом утесе у моря">
-          <div class="element__panel">
-            <p class="element__name">Вернацца</p>
-            <a class="element__like" href="#"></a>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="./images/place-yellowstone-national-park.jpg" alt="Горячий источник">
-          <div class="element__panel">
-            <p class="element__name">Йеллоустонский национальный парк</p>
-            <a class="element__like" href="#"></a>
-          </div>
-        </div>
+        <ul class="elements__container">
+          <li class="element">
+            <img class="element__image" src="./images/place-barcelona.jpg" alt="Церковь в Барселоне">
+            <div class="element__panel">
+              <h2 class="element__name">Барселона</h2>
+              <button class="element__like" type="button"></button>
+            </div>
+          </li>
+          <li class="element">
+            <img class="element__image" src="./images/place-greece.jpg" alt="Руины греческого древнего храма">
+            <div class="element__panel">
+              <h2 class="element__name">Греция</h2>
+              <button class="element__like" type="button"></button>
+            </div>
+          </li>
+          <li class="element">
+            <img class="element__image" src="./images/place-island-of-orleans.jpg" alt="Заснеженная тундра">
+            <div class="element__panel">
+              <h2 class="element__name">Остров Орлеан</h2>
+              <button class="element__like" type="button"></button>
+            </div>
+          </li>
+          <li class="element">
+            <img class="element__image" src="./images/place-lake-bled.jpg" alt="Озеро на фоне замка на островке">
+            <div class="element__panel">
+              <h2 class="element__name">Бледское озеро</h2>
+              <button class="element__like" type="button"></button>
+            </div>
+          </li>
+          <li class="element">
+            <img class="element__image" src="./images/place-vernazza.jpg" alt="Городок на скалистом утесе у моря">
+            <div class="element__panel">
+              <h2 class="element__name">Вернацца</h2>
+              <button class="element__like" type="button"></button>
+            </div>
+          </li>
+          <li class="element">
+            <img class="element__image" src="./images/place-yellowstone-national-park.jpg" alt="Горячий источник">
+            <div class="element__panel">
+              <h2 class="element__name">Йеллоустонский национальный парк</h2>
+              <button class="element__like" type="button"></button>
+            </div>
+          </li>
+        </ul>
       </section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
   </div>
+  <section class="popup">
+    <form class="popup__container" name="form-popup">
+      <h3 class="popup__title">Редактировать профиль</h3>
+      <button class="popup__close" type="button"></button>
+      <label class="popup__label">
+        <input class="popup__input" type="text" name="name" value="Жак-Ив Кусто">
+      </label>
+      <label class="popup__label">
+        <input class="popup__input" type="text" name="about-me" value="Исследователь океана">
+      </label>
+      <button class="popup__btn" type="submit">Сохранить</button>
+    </form>
+  </section>
 </body>
 
 </html>
