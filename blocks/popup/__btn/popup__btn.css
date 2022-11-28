@@ -1,6 +1,6 @@
 .popup__btn {
   width: 100%;
-  padding: 17px 0;
+  padding: 14px 0;
   margin: 48px 0 0;
   display: flex;
   align-items: center;
@@ -12,6 +12,8 @@
   background: #000000;
   border-radius: 2px;
   cursor: pointer;
+  border: none;
+  outline: none;
   transition: 0.5s all;
 }
 

@@ -13,19 +13,19 @@ openPopupButtons.forEach((button) => {
   button.addEventListener('click', (e) => {
     e.preventDefault();
     popup.classList.add('popup_opened');
-    popupContainer.classList.add('popup_opened'); //Такой метод реализован, для плавного открытия и закрытия попапа, другого метода реализации моей задумки, я не могу придумать
+    popupContainer.classList.add('popup__container_opened');
   });
 });
 
 closePopupButton.addEventListener('click', () => {
   popup.classList.remove('popup_opened');
-  popupContainer.classList.remove('popup_opened');
+  popupContainer.classList.remove('popup__container_opened');
 });
 
 document.addEventListener('click', (e) => {
   if (e.target === popup) {
     popup.classList.remove('popup_opened');
-    popupContainer.classList.remove('popup_opened');
+    popupContainer.classList.remove('popup__container_opened');
   }
 });
 
@@ -39,5 +39,5 @@ formElement.addEventListener('submit', handleFormSubmit);
 
 submit.addEventListener('click', () => {
   popup.classList.remove('popup_opened');
-  popupContainer.classList.remove('popup_opened');
+  popupContainer.classList.remove('popup__container_opened');
 });
