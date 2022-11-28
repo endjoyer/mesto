@@ -24,7 +24,6 @@
 
 @media (max-width: 621px) {
   .profile__add-batton {
-    background: url(../../../images/add-batton-mobil.svg) no-repeat center;
     background-size: 16px;
     width: 100%;
     margin: 32px 0 0;
