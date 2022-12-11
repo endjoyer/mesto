@@ -78,7 +78,6 @@ const openPopupButtonsAddEdit = document.querySelectorAll('.element__edit');
 const closePopupButtonAdd = document.querySelector('.popup__close_add');
 const elementsContainer = document.querySelector('.elements__container');
 const addElementForm = document.querySelector('.popup__container_add');
-
 const nameImgInput = addElementForm.querySelector("input[name='name-img']");
 const linkInput = addElementForm.querySelector("input[name='link']");
 const button = addElementForm.querySelector('.popup__btn_add');
@@ -97,7 +96,7 @@ openPopupButtonsAdd.forEach((button) => {
   });
 });
 
-openPopupButtonsAddEdit.forEach((button) => {
+openPopupButtonsAdd.forEach((button) => {
   button.addEventListener('click', (e) => {
     e.preventDefault();
     popupAdd.classList.add('popup_opened');
@@ -159,8 +158,6 @@ const createCard = (name, link) => {
   return element;
 };
 
-console.log(editElement);
-
 const renderCard = (name, link) => {
   elementsContainer.prepend(createCard(name, link));
 };
@@ -172,7 +169,6 @@ const addElement = (event) => {
   const name = nameImgInput.value;
   const link = linkInput.value;
   renderCard(name, link);
-  oldCard();
   nameImgInput.value = '';
   linkInput.value = '';
   deleteClassOpenPopupAdd();
