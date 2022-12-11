@@ -116,6 +116,7 @@ document.addEventListener('click', (e) => {
 
 //_______________________Adding_cards___________________________
 
+// Надеюсь мне не придется убирать редактирование
 function seToEditMode(imgName) {
   addElementForm.addEventListener('submit', editElement);
   nameImgInput.value = imgName.name;
@@ -130,7 +131,7 @@ function setToAddMode() {
   addElementForm.removeEventListener('submit', editElement);
 }
 
-const createCard = (name, link) => {
+const createCard = ({ name, link }) => {
   const template = document.querySelector('#element-template');
   const element = template.content.querySelector('.element').cloneNode(true);
   element.querySelector('.element__name').textContent = name;
@@ -152,14 +153,14 @@ const createCard = (name, link) => {
       setToAddMode();
       deleteClassOpenPopupAdd();
     };
-    seToEditMode(name, link);
+    seToEditMode({ name, link });
   });
 
   return element;
 };
 
-const renderCard = (name, link) => {
-  elementsContainer.prepend(createCard(name, link));
+const renderCard = ({ name, link }) => {
+  elementsContainer.prepend(createCard({ name, link }));
 };
 
 elementsContainer.append(...initialCards.map(createCard));
@@ -168,7 +169,7 @@ const addElement = (event) => {
   event.preventDefault();
   const name = nameImgInput.value;
   const link = linkInput.value;
-  renderCard(name, link);
+  renderCard({ name, link });
   nameImgInput.value = '';
   linkInput.value = '';
   deleteClassOpenPopupAdd();
