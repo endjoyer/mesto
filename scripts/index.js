@@ -80,21 +80,14 @@ const elementsContainer = document.querySelector('.elements__container');
 const addElementForm = document.querySelector('.popup__container_add');
 const nameImgInput = addElementForm.querySelector("input[name='name-img']");
 const linkInput = addElementForm.querySelector("input[name='link']");
-const button = addElementForm.querySelector('.popup__btn_add');
+const button = addElementForm.querySelector('.popup__btn');
 let editElement = null;
 
 function deleteClassOpenPopupAdd() {
   popupAdd.classList.remove('popup_opened');
   addElementForm.classList.remove('popup__container_opened');
+  setToAddMode();
 }
-
-openPopupButtonsAdd.forEach((button) => {
-  button.addEventListener('click', (e) => {
-    e.preventDefault();
-    popupAdd.classList.add('popup_opened');
-    addElementForm.classList.add('popup__container_opened');
-  });
-});
 
 openPopupButtonsAdd.forEach((button) => {
   button.addEventListener('click', (e) => {
@@ -116,11 +109,11 @@ document.addEventListener('click', (e) => {
 
 //_______________________Adding_cards___________________________
 
-// Надеюсь мне не придется убирать редактирование
-function seToEditMode(imgName) {
+// Надеюсь мне не придется убирать редактирование )
+function seToEditMode({ name, link }) {
   addElementForm.addEventListener('submit', editElement);
-  nameImgInput.value = imgName.name;
-  linkInput.value = imgName.link;
+  nameImgInput.value = name;
+  linkInput.value = link;
   addElementForm.removeEventListener('submit', addElement);
 }
 
@@ -141,6 +134,12 @@ const createCard = ({ name, link }) => {
   element.querySelector('.element__delete').addEventListener('click', () => {
     element.remove();
   });
+  element.querySelector('.element__edit').addEventListener('click', (e) => {
+    e.preventDefault();
+    popupAdd.classList.add('popup_opened');
+    addElementForm.classList.add('popup__container_opened');
+  });
+
   element.querySelector('.element__like').addEventListener('click', (e) => {
     e.target.classList.toggle('element__like_active');
   });
