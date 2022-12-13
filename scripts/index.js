@@ -1,4 +1,4 @@
-//__Popup_profile______________________
+//------------------------------Popup_profile------------------------------
 
 let popup = document.querySelector('.popup');
 let popupContainer = document.querySelector('.popup__container');
@@ -42,8 +42,8 @@ function handleFormSubmit(evt) {
 
 popupContainer.addEventListener('submit', handleFormSubmit);
 
-//______________________Popup_image___________________________
-//______________________Open_popup___________________________
+//------------------------------Popup_card------------------------------
+//------------------------------Open_popup------------------------------
 
 const initialCards = [
   {
@@ -107,7 +107,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-//_______________________Adding_cards___________________________
+//------------------------------Adding_cards------------------------------
 
 // Надеюсь мне не придется убирать редактирование )
 function seToEditMode({ name, link }) {
@@ -130,7 +130,6 @@ const createCard = ({ name, link }) => {
   element.querySelector('.element__name').textContent = name;
   element.querySelector('.element__image').src = link;
   element.querySelector('.element__image').alt = name;
-
   element.querySelector('.element__delete').addEventListener('click', () => {
     element.remove();
   });
@@ -139,7 +138,6 @@ const createCard = ({ name, link }) => {
     popupAdd.classList.add('popup_opened');
     addElementForm.classList.add('popup__container_opened');
   });
-
   element.querySelector('.element__like').addEventListener('click', (e) => {
     e.target.classList.toggle('element__like_active');
   });
@@ -169,9 +167,50 @@ const addElement = (event) => {
   const name = nameImgInput.value;
   const link = linkInput.value;
   renderCard({ name, link });
-  nameImgInput.value = '';
-  linkInput.value = '';
   deleteClassOpenPopupAdd();
 };
 
 addElementForm.addEventListener('submit', addElement);
+
+//------------------------------Popup-look-img------------------------------
+
+const popupLookImg = document.querySelector('.popup-look-img');
+const popupLookImgContainer = document.querySelector(
+  '.popup-look-img__container'
+);
+const elementName = document.querySelector('.element__name');
+const popupLookImgTitle = document.querySelector('.popup-look-img__title');
+const pictureElement = document.querySelector('.element__image');
+const picture = Array.from(document.querySelectorAll('.element__image'));
+const popupLookImgClose = document.querySelector('.popup-look-img__close');
+let cardIndex = -1;
+let pictureFull;
+
+for (const card of picture) {
+  card.addEventListener('click', (event) => {
+    event.preventDefault();
+    cardIndex = picture.indexOf(card);
+    pictureFull = picture[cardIndex].cloneNode();
+    popupLookImgContainer.append(pictureFull);
+    popupLookImg.classList.add('popup-look-img_active');
+    const pictureText = popupLookImgContainer.querySelector('.element__image');
+    popupLookImgTitle.textContent = pictureText.alt;
+    pictureFull.style =
+      'min-width: 0; max-width: 75vw; max-height: 75vh; border-top-left-radius: 0;border-top-right-radius: 0;';
+  });
+}
+
+function deleteClasslookImgActive() {
+  popupLookImg.classList.remove('popup-look-img_active');
+  pictureFull.remove();
+}
+
+popupLookImgClose.addEventListener('click', () => {
+  deleteClasslookImgActive();
+});
+
+document.addEventListener('click', (e) => {
+  if (e.target === popupLookImg) {
+    deleteClasslookImgActive();
+  }
+});

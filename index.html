@@ -37,7 +37,9 @@
 
   <template id="element-template">
     <li class="element">
-      <img class="element__image">
+      <div class="element__image-container">
+        <img class="element__image">
+      </div>
       <button class="element__delete" type="button"></button>
       <button class="element__edit" type="button" data-modal="image"></button>
       <div class="element__panel">
@@ -77,7 +79,8 @@
 
   <aside class="popup-look-img">
     <div class="popup-look-img__container">
-      <button class="popup-look-img__close" type="button"></button>
+      <button class="popup-look-img__close  popup__close" type="button"></button>
+      <h3 class="popup-look-img__title"></h3>
     </div>
   </aside>
 

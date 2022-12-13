@@ -1,0 +1,4 @@
+.popup-look-img_active {
+  opacity: 1;
+  pointer-events: all;
+}
