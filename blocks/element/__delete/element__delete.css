@@ -1,12 +1,13 @@
 .element__delete {
   position: absolute;
-  right: 20px;
-  top: 20px;
+  right: 13px;
+  top: 13px;
   display: block;
   width: 18px;
   height: 19px;
   margin: 0;
-  background: url(../../../images/trash.svg) no-repeat top right;
+  padding: 15px;
+  background: url(../../../images/trash.svg) no-repeat center;
   outline: none;
   border: none;
   cursor: pointer;

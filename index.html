@@ -20,11 +20,11 @@
         <div class="profile__info">
           <div class="profile__title-container">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <button class="profile__edit-batton" type="button" data-modal="profile"></button>
+            <button class="profile__edit-batton" type="button"></button>
           </div>
           <p class="profile__subtitle">Исследователь океана</p>
         </div>
-        <button class="profile__add-batton" type="button" data-modal="image"></button>
+        <button class="profile__add-batton" type="button"></button>
       </section>
       <section class="elements">
         <ul class="elements__container"></ul>
@@ -41,7 +41,7 @@
         <img class="element__image">
       </div>
       <button class="element__delete" type="button"></button>
-      <button class="element__edit" type="button" data-modal="image"></button>
+      <button class="element__edit" type="button"></button>
       <div class="element__panel">
         <h2 class="element__name"></h2>
         <button class="element__like" type="button"></button>
@@ -49,8 +49,8 @@
     </li>
   </template>
 
-  <aside class="popup" id="profile">
-    <form class="popup__container" id="profile" name="form-popup">
+  <aside class="popup">
+    <form class="popup__container" name="form-popup">
       <h3 class="popup__title">Редактировать профиль</h3>
       <button class="popup__close" type="button"></button>
       <label class="popup__label">
@@ -63,8 +63,8 @@
     </form>
   </aside>
 
-  <aside class="popup popup_add" id="image">
-    <form class="popup__container popup__container_add" id="image" name="form-popup">
+  <aside class="popup popup_add">
+    <form class="popup__container popup__container_add" name="form-popup">
       <h3 class="popup__title">Новое место</h3>
       <button class="popup__close popup__close_add" type="button"></button>
       <label class="popup__label">
@@ -77,7 +77,7 @@
     </form>
   </aside>
 
-  <aside class="popup-look-img">
+  <aside class="popup popup-look-img">
     <div class="popup-look-img__container">
       <button class="popup-look-img__close  popup__close" type="button"></button>
       <h3 class="popup-look-img__title"></h3>
