@@ -2,12 +2,13 @@
   background: url('../../../images/edit-img.svg') no-repeat center;
   background-size: 20px;
   position: absolute;
-  left: 20px;
-  top: 20px;
+  left: 13px;
+  top: 10px;
   display: block;
   width: 20px;
   height: 20px;
   margin: 0;
+  padding: 15px;
   outline: none;
   border: none;
   cursor: pointer;
