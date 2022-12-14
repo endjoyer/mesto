@@ -4,6 +4,7 @@
   left: 50%;
   display: table;
   margin: 0;
+  object-fit: cover;
   transform: translate(-50%, -50%) scale(0);
   transition: 0.5s all;
 }

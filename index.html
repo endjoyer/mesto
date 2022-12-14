@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
-  <script async src="./scripts/index.js"></script>
+  <script defer src="./scripts/cards.js"></script>
+  <script defer src="./scripts/index.js"></script>
   <link rel="stylesheet" href="./pages/index.css">
 </head>
 
@@ -20,11 +21,11 @@
         <div class="profile__info">
           <div class="profile__title-container">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <button class="profile__edit-batton" type="button"></button>
+            <button class="profile__edit-batton" aria-label="Открыть редактирование профиля" type="button"></button>
           </div>
           <p class="profile__subtitle">Исследователь океана</p>
         </div>
-        <button class="profile__add-batton" type="button"></button>
+        <button class="profile__add-batton" aria-label="Открыть добавление изображений" type="button"></button>
       </section>
       <section class="elements">
         <ul class="elements__container"></ul>
@@ -40,38 +41,39 @@
       <div class="element__image-container">
         <img class="element__image">
       </div>
-      <button class="element__delete" type="button"></button>
-      <button class="element__edit" type="button"></button>
+      <button class="element__delete" aria-label="Закрыть" type="button"></button>
+      <button class="element__edit" aria-label="Открыть редактирование изображения" type="button"></button>
       <div class="element__panel">
         <h2 class="element__name"></h2>
-        <button class="element__like" type="button"></button>
+        <button class="element__like" aria-label="Поставить лайк" type="button"></button>
       </div>
     </li>
   </template>
 
-  <aside class="popup">
+  <aside class="popup" id="popup-edit">
     <form class="popup__container" name="form-popup">
       <h3 class="popup__title">Редактировать профиль</h3>
-      <button class="popup__close" type="button"></button>
+      <button class="popup__close" aria-label="Закрыть" type="button"></button>
       <label class="popup__label">
-        <input class="popup__input" type="text" name="name" value="Жак-Ив Кусто">
+        <input class="popup__input" type="text" name="name" placeholder="Имя" value="Жак-Ив Кусто" required>
       </label>
       <label class="popup__label">
-        <input class="popup__input" type="text" name="about-me" value="Исследователь океана">
+        <input class="popup__input" type="text" name="about-me" placeholder="О себе" value="Исследователь океана"
+          required>
       </label>
       <button class="popup__btn" type="submit">Сохранить</button>
     </form>
   </aside>
 
-  <aside class="popup popup_add">
-    <form class="popup__container popup__container_add" name="form-popup">
+  <aside class="popup" id="popup-add">
+    <form class="popup__container" name="form-popup">
       <h3 class="popup__title">Новое место</h3>
-      <button class="popup__close popup__close_add" type="button"></button>
+      <button class="popup__close" aria-label="Закрыть" type="button"></button>
       <label class="popup__label">
-        <input class="popup__input" type="text" name="name-img" placeholder="Название">
+        <input class="popup__input" type="text" name="name-img" placeholder="Название" required>
       </label>
       <label class="popup__label">
-        <input class="popup__input" type="text" name="link" placeholder="Ссылка на картинку">
+        <input class="popup__input" type="url" name="link" placeholder="Ссылка на картинку" required>
       </label>
       <button class="popup__btn" type="submit">Сохранить</button>
     </form>
@@ -79,7 +81,8 @@
 
   <aside class="popup popup-look-img">
     <div class="popup-look-img__container">
-      <button class="popup-look-img__close  popup__close" type="button"></button>
+      <button class="popup__close" aria-label="Закрыть" type="button"></button>
+      <img class="popup-look-img__image" src="#" alt="">
       <h3 class="popup-look-img__title"></h3>
     </div>
   </aside>
