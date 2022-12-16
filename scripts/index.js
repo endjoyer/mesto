@@ -30,10 +30,8 @@ closePopupEditButton.addEventListener('click', () => {
 });
 
 document.addEventListener('click', (e) => {
-  if (closePopup(e.target)) {
-    closePopup(popup);
-    closePopup(popupCard);
-    closePopup(popupLookImg);
+  if (e.target.classList.contains('popup')) {
+    closePopup(e.target);
     setToAddMode();
   }
 });
