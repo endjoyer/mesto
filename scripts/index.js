@@ -159,38 +159,3 @@ const addElement = (e) => {
 };
 
 addElementForm.addEventListener('submit', addElement);
-
-//---------------------backup-createCard-----------------
-// const createCard = ({ name, link }) => {
-//   const element = document
-//     .querySelector('#element-template')
-//     .content.querySelector('.element')
-//     .cloneNode(true);
-//   element.querySelector('.element__name').textContent = name;
-//   element.querySelector('.element__image').src = link;
-//   element.querySelector('.element__image').alt = name;
-//   element.querySelector('.element__delete').addEventListener('click', () => {
-//     element.remove();
-//   });
-//   element.querySelector('.element__edit').addEventListener('click', (e) => {
-//     e.preventDefault();
-//     popupCard.classList.add('popup_opened');
-//     addElementForm.classList.add('popup__container_opened');
-//   });
-//   element.querySelector('.element__like').addEventListener('click', (e) => {
-//     e.target.classList.toggle('element__like_active');
-//   });
-//   element.querySelector('.element__edit').addEventListener('click', () => {
-//     addElementForm.removeEventListener('submit', currenEditElementHandler);
-//     currenEditElementHandler = (e) => {
-//       e.preventDefault();
-//       element.querySelector('.element__name').textContent = nameImgInput.value;
-//       element.querySelector('.element__image').src = linkInput.value;
-//       setToAddMode();
-//       closePopupCard();
-//     };
-//     seToEditMode({ name, link });
-//   });
-
-//   return element;
-// };
