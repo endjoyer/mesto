@@ -119,15 +119,15 @@ const createCard = ({ name, link }) => {
   element.querySelector('.element__delete').addEventListener('click', () => {
     element.remove();
   });
-  element.querySelector('.element__edit').addEventListener('click', (e) => {
-    e.preventDefault();
-    openPopup(popupCard);
-  });
   element.querySelector('.element__like').addEventListener('click', (e) => {
     e.target.classList.toggle('element__like_active');
   });
-  element.querySelector('.element__edit').addEventListener('click', () => {
+  element.querySelector('.element__edit').addEventListener('click', (e) => {
+    e.preventDefault();
+    openPopup(popupCard);
     const newEditElementHandler = {
+      // Не могу понять почему обновляется страница при редактирование
+      // Был бы крайне признателен, если бы вы мне подсказали
       currenEditElementHandler: (e) => {
         e.preventDefault();
         element.querySelector('.element__name').textContent =
