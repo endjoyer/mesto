@@ -36,6 +36,24 @@ document.addEventListener('click', (e) => {
   }
 });
 
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'Escape' && popup.classList.contains('popup_opened')) {
+    closePopup(popup);
+  } else if (
+    e.code === 'Escape' &&
+    popupCard.classList.contains('popup_opened')
+  ) {
+    closePopup(popupCard);
+    setToAddMode();
+  } else if (
+    e.code === 'Escape' &&
+    popupLookImg.classList.contains('popup_opened')
+  ) {
+    closePopup(popupLookImg);
+    setToAddMode();
+  }
+});
+
 function handleFormEditSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = nameInput.value;
@@ -83,9 +101,8 @@ popupLookImgClose.addEventListener('click', () => {
 
 //------------------------------Adding_cards------------------------------
 
-function setPopupCardEditMode({ name, link }, newEditHandler) {
-  addElementForm.removeEventListener('submit', currenEditElementHandler);
-  addElementForm.addEventListener('submit', newEditHandler);
+function seToEditMode({ name, link }) {
+  addElementForm.addEventListener('submit', currenEditElementHandler);
   nameImgInput.value = name;
   linkInput.value = link;
   addElementForm.removeEventListener('submit', addElement);
@@ -120,23 +137,19 @@ const createCard = ({ name, link }) => {
   element.querySelector('.element__like').addEventListener('click', (e) => {
     e.target.classList.toggle('element__like_active');
   });
-  element.querySelector('.element__edit').addEventListener('click', (e) => {
-    e.preventDefault();
+  element.querySelector('.element__edit').addEventListener('click', () => {
     openPopup(popupCard);
-    const newEditElementHandler = {
-      // Не могу понять почему обновляется страница при редактирование
-      // Был бы крайне признателен, если бы вы мне подсказали
-      currenEditElementHandler: (e) => {
-        e.preventDefault();
-        element.querySelector('.element__name').textContent =
-          nameImgInput.value;
-        elementImage.src = linkInput.value;
-        elementImage.alt = nameImgInput.value;
-        setToAddMode();
-        deleteClassOpenPopupCard();
-      },
+    addElementForm.removeEventListener('submit', currenEditElementHandler);
+    currenEditElementHandler = (e) => {
+      e.preventDefault();
+      element.querySelector('.element__name').textContent = nameImgInput.value;
+      elementImage.src = linkInput.value;
+      elementImage.alt = nameImgInput.value;
+      setToAddMode();
+      closePopup(popupCard);
     };
-    setPopupCardEditMode({ name, link }, newEditElementHandler);
+
+    seToEditMode({ name, link });
   });
 
   return element;

@@ -1,6 +1,6 @@
 .popup__label {
   width: 100%;
-  margin-bottom: 26px;
+  position: relative;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
