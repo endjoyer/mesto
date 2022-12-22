@@ -1,10 +1,10 @@
 //------------------------------Popup_profile------------------------------
 
 const popup = document.querySelector('.popup');
-const popupEdit = document.querySelector('#popup-edit');
-const popupEditContainer = popupEdit.querySelector('.popup__container');
-const openPopupEditButtons = document.querySelectorAll('.profile__edit-batton');
-const closePopupEditButton = popupEdit.querySelector('.popup__close');
+const popupEditProfile = document.querySelector('#popup-edit');
+const popupEditContainer = popupEditProfile.querySelector('.popup__container');
+const openPopupEditButtons = document.querySelector('.profile__edit-batton');
+const closePopupEditButton = popupEditProfile.querySelector('.popup__close');
 const nameInput = document.querySelector("input[name='name']");
 const jobInput = document.querySelector("input[name='about-me']");
 const profileTitle = document.querySelector('.profile__title');
@@ -12,47 +12,43 @@ const profileSubtitle = document.querySelector('.profile__subtitle');
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('popup')) {
+      closePopup(e.target);
+      setToAddMode();
+    }
+  });
+  document.addEventListener('keydown', closePopupByEscape);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('click', function (e) {
+    if (e.target.classList.contains('popup')) {
+      closePopup(e.target);
+      setToAddMode();
+    }
+  });
+  document.removeEventListener('keydown', closePopupByEscape);
 }
 
-openPopupEditButtons.forEach((button) => {
-  button.addEventListener('click', (e) => {
-    e.preventDefault();
-    openPopup(popup);
-  });
+openPopupEditButtons.addEventListener('click', (e) => {
+  e.preventDefault();
+  openPopup(popupEditProfile);
 });
 
 closePopupEditButton.addEventListener('click', () => {
-  closePopup(popup);
+  closePopup(popupEditProfile);
 });
 
-document.addEventListener('click', (e) => {
-  if (e.target.classList.contains('popup')) {
-    closePopup(e.target);
-    setToAddMode();
-  }
-});
-
-document.addEventListener('keydown', (e) => {
-  if (e.code === 'Escape' && popup.classList.contains('popup_opened')) {
-    closePopup(popup);
-  } else if (
-    e.code === 'Escape' &&
-    popupCard.classList.contains('popup_opened')
-  ) {
+function closePopupByEscape(e) {
+  if (e.code === 'Escape') {
+    closePopup(popupEditProfile);
     closePopup(popupCard);
-    setToAddMode();
-  } else if (
-    e.code === 'Escape' &&
-    popupLookImg.classList.contains('popup_opened')
-  ) {
     closePopup(popupLookImg);
     setToAddMode();
   }
-});
+}
 
 function handleFormEditSubmit(evt) {
   evt.preventDefault();
@@ -67,7 +63,7 @@ popupEditContainer.addEventListener('submit', handleFormEditSubmit);
 //------------------------------Open_popup------------------------------
 
 const popupCard = document.querySelector('#popup-add');
-const popupCardOpenButtons = document.querySelectorAll('.profile__add-batton');
+const popupCardOpenButtons = document.querySelector('.profile__add-batton');
 const closePopupButtonCard = popupCard.querySelector('.popup__close');
 const addElementForm = popupCard.querySelector('.popup__container');
 const elementsContainer = document.querySelector('.elements__container');
@@ -83,11 +79,9 @@ const popupLookImgClose = popupLookImg.querySelector('.popup__close');
 const pictureFull = document.querySelector('.popup-look-img__image');
 let currenEditElementHandler = null;
 
-popupCardOpenButtons.forEach((button) => {
-  button.addEventListener('click', (e) => {
-    e.preventDefault();
-    openPopup(popupCard);
-  });
+popupCardOpenButtons.addEventListener('click', (e) => {
+  e.preventDefault();
+  openPopup(popupCard);
 });
 
 closePopupButtonCard.addEventListener('click', () => {
@@ -100,11 +94,9 @@ popupLookImgClose.addEventListener('click', () => {
 });
 
 //------------------------------Adding_cards------------------------------
-
-function seToEditMode({ name, link }) {
+//Спасибо за вашу похвалу и заботу о моих нервах. Но я считаю, цель этого проекта, обучить программированию и показать потенциальным работодателям, на что человек способен, а функция редактирования, ни то, что не мешает, а на напротив приятно дополняет функционал. И не думаю, что несколько строчек кода может затруднить ревю. Насчет будущих потраченных усилий. Я уже потратил немало времени и нервов, для её реализации и не боюсь будущих. Мне конечно же несложно убрать этот код, но я все же хотел бы его оставить, т.к. в будущем его все ровно верну, но это будет, как минимум менее информативно и  интересно. Спасибо за то, что прочитали это.
+function setToEditMode() {
   addElementForm.addEventListener('submit', currenEditElementHandler);
-  nameImgInput.value = name;
-  linkInput.value = link;
   addElementForm.removeEventListener('submit', addElement);
 }
 
@@ -121,7 +113,8 @@ const createCard = ({ name, link }) => {
     .content.querySelector('.element')
     .cloneNode(true);
   const elementImage = element.querySelector('.element__image');
-  element.querySelector('.element__name').textContent = name;
+  const elementName = element.querySelector('.element__name');
+  elementName.textContent = name;
   elementImage.src = link;
   elementImage.alt = name;
   elementImage.addEventListener('click', (e) => {
@@ -142,14 +135,15 @@ const createCard = ({ name, link }) => {
     addElementForm.removeEventListener('submit', currenEditElementHandler);
     currenEditElementHandler = (e) => {
       e.preventDefault();
-      element.querySelector('.element__name').textContent = nameImgInput.value;
+      elementName.textContent = nameImgInput.value;
       elementImage.src = linkInput.value;
       elementImage.alt = nameImgInput.value;
       setToAddMode();
       closePopup(popupCard);
     };
-
-    seToEditMode({ name, link });
+    nameImgInput.value = elementName.textContent;
+    linkInput.value = elementImage.src;
+    setToEditMode();
   });
 
   return element;
@@ -165,6 +159,8 @@ const addElement = (e) => {
   e.preventDefault();
   const name = nameImgInput.value;
   const link = linkInput.value;
+  nameImgInput.value = '';
+  linkInput.value = '';
   renderCard({ name, link });
   closePopup(popupCard);
 };
