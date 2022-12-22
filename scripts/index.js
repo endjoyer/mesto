@@ -166,3 +166,5 @@ const addElement = (e) => {
 };
 
 addElementForm.addEventListener('submit', addElement);
+
+enableValidation(validationConfig);
