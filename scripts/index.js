@@ -12,6 +12,7 @@ const profileSubtitle = document.querySelector('.profile__subtitle');
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  enableValidation(validationConfig);
   document.addEventListener('click', function (e) {
     if (e.target.classList.contains('popup')) {
       closePopup(e.target);
@@ -82,6 +83,7 @@ let currenEditElementHandler = null;
 popupCardOpenButtons.addEventListener('click', (e) => {
   e.preventDefault();
   openPopup(popupCard);
+  enableValidation(validationConfig);
 });
 
 closePopupButtonCard.addEventListener('click', () => {
