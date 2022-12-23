@@ -20,6 +20,7 @@ function openPopup(popup) {
     }
   });
   document.addEventListener('keydown', closePopupByEscape);
+  deleteValidation();
 }
 
 function closePopup(popup) {
@@ -84,6 +85,7 @@ popupCardOpenButtons.addEventListener('click', (e) => {
   e.preventDefault();
   openPopup(popupCard);
   enableValidation(validationConfig);
+  deleteValidation();
 });
 
 closePopupButtonCard.addEventListener('click', () => {
@@ -96,6 +98,7 @@ popupLookImgClose.addEventListener('click', () => {
 });
 
 //------------------------------Adding_cards------------------------------
+//Спасибо за вашу похвалу и заботу о моих нервах. Но я считаю, цель этого проекта, обучить программированию и показать потенциальным работодателям, на что человек способен, а функция редактирования, ни то, что не мешает, а на напротив приятно дополняет функционал. И я не думаю, что несколько строчек кода может затруднить ревю. Насчет будущих потраченных усилий. Я уже потратил немало времени и нервов, для её реализации и не боюсь будущих. Мне конечно же несложно убрать этот код, но я все же хотел бы его оставить, т.к. в будущем его все ровно верну, но это будет, как минимум менее информативно и  интересно. Спасибо за внимание.
 
 function setToEditMode() {
   addElementForm.addEventListener('submit', currenEditElementHandler);

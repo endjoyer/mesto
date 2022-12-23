@@ -63,3 +63,23 @@ function enableValidation(config) {
     });
   });
 }
+//Без нее при закрытии попапов, без сохранения, остаются ошибки валидации
+function deleteValidation() {
+  nameImgInput.classList.remove('popup__input_type_error');
+  linkInput.classList.remove('popup__input_type_error');
+  addElementForm
+    .querySelector('.name-img-error')
+    .classList.remove('popup__input-error_active');
+  addElementForm
+    .querySelector('.link-error')
+    .classList.remove('popup__input-error_active');
+
+  nameInput.classList.remove('popup__input_type_error');
+  jobInput.classList.remove('popup__input_type_error');
+  popupEditContainer
+    .querySelector('.name-error')
+    .classList.remove('popup__input-error_active');
+  popupEditContainer
+    .querySelector('.about-me-error')
+    .classList.remove('popup__input-error_active');
+}
