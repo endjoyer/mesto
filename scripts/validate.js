@@ -64,22 +64,32 @@ function enableValidation(config) {
   });
 }
 //Без нее при закрытии попапов, без сохранения, остаются ошибки валидации
-function deleteValidation() {
-  nameImgInput.classList.remove('popup__input_type_error');
-  linkInput.classList.remove('popup__input_type_error');
-  addElementForm
-    .querySelector('.name-img-error')
-    .classList.remove('popup__input-error_active');
-  addElementForm
-    .querySelector('.link-error')
-    .classList.remove('popup__input-error_active');
+// function removeValidationErrors() {
+//   nameImgInput.classList.remove('popup__input_type_error');
+//   linkInput.classList.remove('popup__input_type_error');
+//   formElement
+//     .querySelector('.name-img-error')
+//     .classList.remove('popup__input-error_active');
+//   formElement
+//     .querySelector('.link-error')
+//     .classList.remove('popup__input-error_active');
+// }
 
-  nameInput.classList.remove('popup__input_type_error');
-  jobInput.classList.remove('popup__input_type_error');
-  popupEditContainer
-    .querySelector('.name-error')
-    .classList.remove('popup__input-error_active');
-  popupEditContainer
-    .querySelector('.about-me-error')
-    .classList.remove('popup__input-error_active');
-}
+// function removeValidationErrors(config) {
+//   const formList = Array.from(document.querySelectorAll(config.formSelector));
+//   const inputList = Array.from(document.querySelectorAll(config.inputSelector));
+
+//   formList.forEach((formElement) => {
+//     formElement.addEventListener('mousemove', () => {
+//       inputList.forEach((formElement, inputElement) => {
+//         const errorElement = formElement.querySelector(
+//           `.${inputElement.name}-error`
+//         );
+
+//         errorElement.classList.remove(config.errorClass);
+//         errorElement.textContent = '';
+//         inputElement.classList.remove(config.inputErrorClass);
+//       });
+//     });
+//   });
+// }
