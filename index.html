@@ -44,7 +44,6 @@
         <img class="element__image">
       </div>
       <button class="element__delete" aria-label="Закрыть" type="button"></button>
-      <button class="element__edit" aria-label="Открыть редактирование изображения" type="button"></button>
       <div class="element__panel">
         <h2 class="element__name"></h2>
         <button class="element__like" aria-label="Поставить лайк" type="button"></button>
@@ -71,23 +70,6 @@
   </aside>
 
   <aside class="popup" id="popup-add">
-    <form class="popup__container" name="form-popup" novalidate>
-      <h3 class="popup__title">Новое место</h3>
-      <button class="popup__close" aria-label="Закрыть" type="button"></button>
-      <label class="popup__label">
-        <input class="popup__input" type="text" name="name-img" placeholder="Название" required minlength="2"
-          maxlength="30">
-        <span class="name-img-error popup__input-error"></span>
-      </label>
-      <label class="popup__label">
-        <input class="popup__input" type="url" name="link" placeholder="Ссылка на картинку" required>
-        <span class="link-error popup__input-error"></span>
-      </label>
-      <button class="popup__btn popup__submit" type="submit">Сохранить</button>
-    </form>
-  </aside>
-
-  <aside class="popup" id="popup-add-edit">
     <form class="popup__container" name="form-popup" novalidate>
       <h3 class="popup__title">Новое место</h3>
       <button class="popup__close" aria-label="Закрыть" type="button"></button>

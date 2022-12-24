@@ -71,11 +71,6 @@ const popupLookImgContainer = document.querySelector(
 const popupLookImgTitle = document.querySelector('.popup-look-img__title');
 const popupLookImgClose = popupLookImg.querySelector('.popup__close');
 const pictureFull = document.querySelector('.popup-look-img__image');
-const popupCardEdit = document.querySelector('#popup-add-edit');
-const formEditCard = popupCardEdit.querySelector('.popup__container');
-const nameImgEditInput = formEditCard.querySelector("input[name='name-img']");
-const linkEditInput = formEditCard.querySelector("input[name='link']");
-const closePopupButtonCardEdit = formEditCard.querySelector('.popup__close');
 
 popupCardOpenButtons.addEventListener('click', () => {
   openPopup(popupCard);
@@ -85,16 +80,12 @@ closePopupButtonCard.addEventListener('click', () => {
   closePopup(popupCard);
 });
 
-closePopupButtonCardEdit.addEventListener('click', () => {
-  closePopup(popupCardEdit);
-});
-
 popupLookImgClose.addEventListener('click', () => {
   closePopup(popupLookImg);
 });
 
 //------------------------------Adding_cards------------------------------
-//Спасибо большое за информативный, развёрнутый ответ. Видимо все же придется отказать от этой идеи. Видимо моих знаний не достаточно, для ее рализации по вашим требованиям. Но надеюсь это не на всегда
+//Спасибо большое за информативный, развёрнутый ответ. Видимо все же придется отказать от этой идеи. Видимо моих знаний не достаточно, для ее рализации, по вашим требованиям. Но надеюсь это не на всегда
 
 const createCard = ({ name, link }) => {
   const element = document
@@ -117,22 +108,6 @@ const createCard = ({ name, link }) => {
   });
   element.querySelector('.element__like').addEventListener('click', (e) => {
     e.target.classList.toggle('element__like_active');
-  });
-  element.querySelector('.element__edit').addEventListener('click', (e) => {
-    e.preventDefault();
-    openPopup(popupCardEdit);
-
-    submitEditCardForm = (e) => {
-      e.preventDefault();
-      elementName.textContent = nameImgEditInput.value;
-      elementImage.src = linkEditInput.value;
-      elementImage.alt = nameImgEditInput.value;
-      closePopup(popupCardEdit);
-    };
-    nameImgEditInput.value = elementName.textContent;
-    linkEditInput.value = elementImage.src;
-
-    formEditCard.addEventListener('submit', submitEditCardForm);
   });
 
   return element;
