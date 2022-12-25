@@ -11,14 +11,17 @@ const jobInput = document.querySelector("input[name='about-me']");
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
 
+let activePopup = null;
+
 function openPopup(popup) {
+  activePopup = popup;
   popup.classList.add('popup_opened');
   document.addEventListener('click', closePopupByTarget);
   document.addEventListener('keydown', сlosePopupByEscape);
 }
 
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
+function closePopup() {
+  activePopup.classList.remove('popup_opened');
   document.removeEventListener('click', closePopupByTarget);
   document.removeEventListener('keydown', сlosePopupByEscape);
 }
@@ -29,15 +32,15 @@ function closePopupByTarget(e) {
 }
 
 function сlosePopupByEscape(e) {
-  popups.forEach((popup) => {
-    if (e.code === 'Escape' && popup.classList.contains('popup_opened')) {
-      closePopup(popup);
-    }
-  });
+  if (e.code === 'Escape' && activePopup.classList.contains('popup_opened')) {
+    closePopup(activePopup);
+  }
 }
 
 openPopupEditButtons.addEventListener('click', () => {
   openPopup(popupEditProfile);
+  nameInput.value = profileTitle.textContent;
+  jobInput.value = profileSubtitle.textContent;
 });
 
 closePopupEditButton.addEventListener('click', () => {
@@ -85,7 +88,7 @@ popupLookImgClose.addEventListener('click', () => {
 });
 
 //------------------------------Adding_cards------------------------------
-//Спасибо большое за информативный, развёрнутый ответ. Видимо все же придется отказать от этой идеи. Видимо моих знаний не достаточно, для ее рализации, по вашим требованиям. Но надеюсь это не на всегда
+//Не получается у меня вывести submit попопа редактирования в глобальную области видимости, только в createCard. Из-за этого пришлось смириться. А насчет дополнительного функционала я с вами согласен. Просто при сдаче на ревю, ты или считаешь что у тебя более менее все корректно выполнено или у тебя по другому никак ни выходит.
 
 const createCard = ({ name, link }) => {
   const element = document
