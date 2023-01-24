@@ -1,4 +1,4 @@
-export const popup = document.querySelector('.popup');
+const popup = document.querySelector('.popup');
 let activePopup = null;
 
 export function openPopup(popup) {
