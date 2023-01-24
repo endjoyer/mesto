@@ -1,7 +1,7 @@
 import { initialCards } from '../utils/initialCards.js';
 import { openPopup, closePopup } from '../utils/openAndClosePopup.js';
 
-const popupCard = document.querySelector('#popup-add');
+export const popupCard = document.querySelector('#popup-add');
 const popupCardOpenButtons = document.querySelector('.profile__add-batton');
 const closePopupButtonCard = popupCard.querySelector('.popup__close');
 const addElementForm = popupCard.querySelector('.popup__container');
