@@ -1,7 +1,8 @@
-import { renderCards, popupCard } from '../components/card.js';
 import { openPopup, closePopup } from '../utils/openAndClosePopup.js';
+import { initialCards } from '../utils/initialCards.js';
+import Card from '../components/card.js';
 import { validationConfig } from '../utils/validationConfig.js';
-import { FormValidator } from '../components/formValidator.js';
+import FormValidator from '../components/formValidator.js';
 
 //------------------------------Popup_profile------------------------------
 
@@ -34,8 +35,65 @@ function handleFormEditSubmit(evt) {
 popupEditContainer.addEventListener('submit', handleFormEditSubmit);
 
 //------------------------------Popup_cards------------------------------
+const popupCard = document.querySelector('#popup-add');
+const popupCardOpenButtons = document.querySelector('.profile__add-batton');
+const closePopupButtonCard = popupCard.querySelector('.popup__close');
 
-renderCards();
+const popupLookImg = document.querySelector('.popup-look-img');
+const popupLookImgTitle = document.querySelector('.popup-look-img__title');
+const popupLookImgClose = popupLookImg.querySelector('.popup__close');
+const pictureFull = document.querySelector('.popup-look-img__image');
+const elementsContainer = document.querySelector('.elements__container');
+const addElementForm = popupCard.querySelector('.popup__container');
+const nameImgInput = addElementForm.querySelector("input[name='name-img']");
+const linkInput = addElementForm.querySelector("input[name='link']");
+
+popupCardOpenButtons.addEventListener('click', () => {
+  openPopup(popupCard);
+});
+
+closePopupButtonCard.addEventListener('click', () => {
+  closePopup(popupCard);
+});
+
+popupLookImgClose.addEventListener('click', () => {
+  closePopup(popupLookImg);
+});
+
+function handleOpenPopupLookImg(name, link) {
+  pictureFull.src = link;
+  pictureFull.alt = name;
+  popupLookImgTitle.textContent = name;
+  openPopup(popupLookImg);
+}
+
+const createCard = ({ name, link }) => {
+  const card = new Card(
+    name,
+    link,
+    '#element-template',
+    handleOpenPopupLookImg
+  ).generateCard();
+  return card;
+};
+
+initialCards.forEach((name, link) => {
+  createCard(name, link);
+  elementsContainer.append(createCard(name, link));
+});
+
+const addCard = (e) => {
+  e.preventDefault();
+  const name = nameImgInput.value;
+  const link = linkInput.value;
+  elementsContainer.prepend(createCard({ name, link }));
+  nameImgInput.value = '';
+  linkInput.value = '';
+  popupCardValidator.toggleButtonState();
+  closePopup(popupCard);
+};
+
+addElementForm.addEventListener('submit', addCard);
 
 //------------------------------Validation_forms------------------------------
 

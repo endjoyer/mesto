@@ -1,5 +1,4 @@
 export const validationConfig = {
-  formSelector: '.popup__container',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__submit',
   inactiveButtonClass: 'popup__btn_inactive',
