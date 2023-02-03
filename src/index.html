@@ -5,18 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
-  <script type="module" src="./scripts/pages/index.js"></script>
-  <link rel="stylesheet" href="./pages/index.css">
+  <!-- <script type="module" src="./scripts/pages/index.js"></script> -->
+  <!-- <link rel="stylesheet" href="./pages/index.css"> -->
 </head>
 
 <body>
   <div class="page">
     <header class="header">
-      <img class="header__logo" src="./images/logo.svg" alt="Лого Mesto">
+      <img class="header__logo" src="<%=require('../images/logo.svg')%>" alt="Лого Mesto">
     </header>
     <main class="page__content">
       <section class="profile">
-        <img class="profile__avatar" src="./images/avatar.jpg" alt="Фотография исследователь">
+        <img class="profile__avatar" src="<%=require('../images/avatar.jpg')%>" alt="Фотография исследователь">
         <div class="profile__info">
           <div class="profile__title-container">
             <h1 class="profile__title">Жак-Ив Кусто</h1>

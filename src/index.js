@@ -1,8 +1,9 @@
-import { openPopup, closePopup } from '../utils/openAndClosePopup.js';
-import { initialCards } from '../utils/initialCards.js';
-import Card from '../components/Card.js';
-import { validationConfig } from '../utils/validationConfig.js';
-import FormValidator from '../components/FormValidator.js';
+import '../pages//index.css';
+import { openPopup, closePopup } from '../scripts/utils/openAndClosePopup.js';
+import { initialCards } from '../scripts/utils/initialCards.js';
+import Card from '../scripts/components/card.js';
+import { validationConfig } from '../scripts/utils/validationConfig.js';
+import FormValidator from '../scripts/components/formValidator.js';
 
 //------------------------------Popup_profile------------------------------
 
