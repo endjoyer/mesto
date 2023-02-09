@@ -13,19 +13,22 @@ const openPopupEditButtons = document.querySelector('.profile__edit-batton');
 const popupCard = document.querySelector('#popup-add');
 const popupCardOpenButtons = document.querySelector('.profile__add-batton');
 const popupLookImg = document.querySelector('.popup-look-img');
+const popupEditContainer = popupEditProfile.querySelector('.popup__container');
+const editNameInput = popupEditContainer.elements.name;
+const editJobInput = popupEditContainer.elements.job;
 
 //создание класса попапа редактирования информации о пользователе
 const popupWithFormEditProfile = new PopupWithForm(
   popupEditProfile,
-  handleOpenPopupEditProfile
+  submitEditProfileForm
 );
 
 popupWithFormEditProfile.setEventListeners();
 
 //создания класса переноса информации о пользователе
 const userInfo = new UserInfo({
-  name: '.profile__title',
-  job: '.profile__subtitle',
+  title: '.profile__title',
+  subtitle: '.profile__subtitle',
 });
 
 //создание класса попапа открытия картинки
@@ -50,7 +53,7 @@ const cardList = new Section(
 );
 
 //отравка текста редактирования профиля на страницу
-function handleOpenPopupEditProfile(value) {
+function submitEditProfileForm(value) {
   userInfo.setUserInfo(value.name, value.job);
   popupWithFormEditProfile.close();
 }
@@ -66,15 +69,16 @@ cardList.renderItems(initialCards.reverse());
 
 //открытие попапа профиля
 openPopupEditButtons.addEventListener('click', () => {
-  //Не могу понять почему в значение инутов передается undefined!!!
-  // const { name, job } = userInfo.getUserInfo();
-  // editNameInput.value = name;
-  // editJobInput.value = job;
+  const { title, subtitle } = userInfo.getUserInfo();
+  editNameInput.value = title.textContent;
+  editJobInput.value = subtitle.textContent;
+  popupEditProfileValidator.toggleButtonState();
   popupWithFormEditProfile.open();
 });
 
 //открытие попапа создания карточки
 popupCardOpenButtons.addEventListener('click', () => {
+  popupCardValidator.toggleButtonState();
   popupWithFormCard.open();
 });
 
