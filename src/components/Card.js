@@ -52,13 +52,4 @@ export default class Card {
   _handleLikeCard() {
     this._likeElement.classList.toggle('element__like_active');
   }
-
-  // _openImage(name, link) {
-  //   this._element
-  //     .querySelector('.element__image')
-  //     .addEventListener('click', () => {
-  //       this.handleOpenPopupLookImg(name, link);
-  //     });
-  //     return this.handleOpenPopupLookImg(name, link)
-  // }
 }
