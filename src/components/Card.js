@@ -1,7 +1,7 @@
 export default class Card {
-  constructor(name, link, templateSelector, onClickImage) {
-    this._name = name;
-    this._link = link;
+  constructor(data, templateSelector, onClickImage) {
+    this._name = data.name;
+    this._link = data.link;
     this._templateSelector = templateSelector;
     this._onClickImage = onClickImage;
   }
@@ -41,7 +41,7 @@ export default class Card {
       });
     this._element
       .querySelector('.element__like')
-      .addEventListener('click', (e) => {
+      .addEventListener('click', () => {
         this._handleLikeCard();
       });
   }

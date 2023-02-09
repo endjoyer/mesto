@@ -5,11 +5,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // подклю�
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: { main: './src/index.js' },
+  entry: { main: './src/pages/index.js' },
+  devtool: 'inline-source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
     publicPath: '',
+    clean: true,
   },
   mode: 'development',
   devServer: {
@@ -18,6 +20,7 @@ module.exports = {
     port: 8080, // порт, чтобы открывать сайт по адресу localhost:8080, но можно поменять порт
 
     open: true, // сайт будет открываться сам при запуске npm run dev
+    watchFiles: ['src/**/*.html'], //изменение отображения html на сервере без перезагрузки
   },
   module: {
     rules: [
