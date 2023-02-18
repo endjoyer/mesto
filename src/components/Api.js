@@ -35,6 +35,16 @@ export default class Api {
     }).then((res) => this._requestResult(res));
   }
 
+  editUserAvatar(data) {
+    return fetch(`${this._baseUrl}users/me/avatar`, {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: data.avatar,
+      }),
+    }).then((res) => this._requestResult(res));
+  }
+
   postCard(data) {
     return fetch(`${this._baseUrl}cards`, {
       method: 'POST',
@@ -48,6 +58,20 @@ export default class Api {
 
   deleteCard(cardId) {
     return fetch(`${this._baseUrl}cards/${cardId}`, {
+      method: 'DELETE',
+      headers: this._headers,
+    }).then((res) => this._requestResult(res));
+  }
+
+  putLike(cardId) {
+    return fetch(`${this._baseUrl}cards/${cardId}/likes`, {
+      method: 'PUT',
+      headers: this._headers,
+    }).then((res) => this._requestResult(res));
+  }
+
+  removeLike(cardId) {
+    return fetch(`${this._baseUrl}cards/${cardId}/likes`, {
       method: 'DELETE',
       headers: this._headers,
     }).then((res) => this._requestResult(res));

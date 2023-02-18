@@ -3,7 +3,7 @@ import Popup from './Popup.js';
 export default class PopupWithConfirmation extends Popup {
   constructor(popupElement) {
     super(popupElement);
-    this._form = this._popup.querySelector('.popup__container');
+    this._submitButton = this._popup.querySelector('.popup__btn');
   }
 
   submitCallback(remove) {
@@ -12,7 +12,7 @@ export default class PopupWithConfirmation extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
-    this._form.addEventListener('click', (e) => {
+    this._submitButton.addEventListener('click', (e) => {
       e.preventDefault();
       this._handleSubmit();
     });
