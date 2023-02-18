@@ -16,15 +16,19 @@
     </header>
     <main class="page__content">
       <section class="profile">
-        <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Фотография исследователь">
+        <div class="profile__avatar-container">
+          <img class="profile__avatar" src="" alt="Картинка профиля">
+          <button class="profile__edit-avatar-button" aria-label="Открыть редактирование картинки профиля"
+            type="button"></button>
+        </div>
         <div class="profile__info">
           <div class="profile__title-container">
-            <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <button class="profile__edit-batton" aria-label="Открыть редактирование профиля" type="button"></button>
+            <h1 class="profile__title"></h1>
+            <button class="profile__edit-button" aria-label="Открыть редактирование профиля" type="button"></button>
           </div>
-          <p class="profile__subtitle">Исследователь океана</p>
+          <p class="profile__subtitle"></p>
         </div>
-        <button class="profile__add-batton" aria-label="Открыть добавление изображений" type="button"></button>
+        <button class="profile__add-button" aria-label="Открыть добавление изображений" type="button"></button>
       </section>
       <section class="elements">
         <ul class="elements__container"></ul>
@@ -43,7 +47,10 @@
       <button class="element__delete" aria-label="Закрыть" type="button"></button>
       <div class="element__panel">
         <h2 class="element__name"></h2>
-        <button class="element__like" aria-label="Поставить лайк" type="button"></button>
+        <div class="element__like-container">
+          <button class="element__like" aria-label="Поставить лайк" type="button"></button>
+          <span class="element__number-likes"></span>
+        </div>
       </div>
     </li>
   </template>
@@ -58,11 +65,11 @@
         <span class="name-error popup__input-error"></span>
       </label>
       <label class="popup__label">
-        <input class="popup__input" type="text" name="job" placeholder="О себе" value="" required minlength="2"
+        <input class="popup__input" type="text" name="about" placeholder="О себе" value="" required minlength="2"
           maxlength="200">
-        <span class="job-error popup__input-error"></span>
+        <span class="about-error popup__input-error"></span>
       </label>
-      <button class="popup__btn popup__submit" type="submit">Сохранить</button>
+      <button class="popup__btn popup__submit" type="submit"><span class="popup__btn-text">Сохранить</span></button>
     </form>
   </aside>
 
@@ -79,7 +86,27 @@
         <input class="popup__input" type="url" name="link" placeholder="Ссылка на картинку" required>
         <span class="link-error popup__input-error"></span>
       </label>
-      <button class="popup__btn popup__submit" type="submit">Сохранить</button>
+      <button class="popup__btn popup__submit" type="submit"><span class="popup__btn-text">Сохранить</span></button>
+    </form>
+  </aside>
+
+  <aside class="popup" id="popup-edit-avatar">
+    <form class="popup__container" name="form-popup" novalidate>
+      <h3 class="popup__title">Обновить аватар</h3>
+      <button class="popup__close" aria-label="Закрыть" type="button"></button>
+      <label class="popup__label">
+        <input class="popup__input" type="url" name="avatar" placeholder="Ссылка на картинку" required>
+        <span class="avatar-error popup__input-error"></span>
+      </label>
+      <button class="popup__btn popup__submit" type="submit"><span class="popup__btn-text">Сохранить</span></button>
+    </form>
+  </aside>
+
+  <aside class="popup" id="popup-confirmation">
+    <form class="popup__container">
+      <h3 class="popup__title">Вы уверены?</h3>
+      <button class="popup__close" aria-label="Закрыть" type="button"></button>
+      <button class="popup__btn" type="submit">Да</button>
     </form>
   </aside>
 
