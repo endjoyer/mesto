@@ -200,7 +200,7 @@ popupCardOpenButton.addEventListener('click', () => {
 
 //открытие попапа редактирования аватара
 openPopupEditAvatarButton.addEventListener('click', () => {
-  popupCardValidator.resetValidation();
+  popupEditAvatarValidator.resetValidation();
   popupWithFormEditAvatar.open();
 });
 
