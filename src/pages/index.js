@@ -15,15 +15,10 @@ const popupCard = document.querySelector('#popup-add');
 const popupCardOpenButton = document.querySelector('.profile__add-button');
 const popupLookImg = document.querySelector('.popup-look-img');
 const popupConfirmation = document.querySelector('#popup-confirmation');
-const popupEditContainer = popupEditProfile.querySelector('.popup__container');
-const editNameInput = popupEditContainer.elements.name;
-const editJobInput = popupEditContainer.elements.about;
 const popupEditAvatar = document.querySelector('#popup-edit-avatar');
 const openPopupEditAvatarButton = document.querySelector(
   '.profile__edit-avatar-button'
 );
-// const userName = document.querySelector('.profile__title');
-// const userJob = document.querySelector('.profile__subtitle');
 let userId;
 
 //создание класса взаимодействия с api
@@ -36,32 +31,20 @@ const api = new Api({
 });
 
 //прием данных о профиле и карточках с сервера. И их использование
-Promise.all([api.getInitialCards(), api.getInitialUser()])
-  .then(([initialCards, userData]) => {
+Promise.all([api.getInitialCards(), api.getInitialUser()]).then(
+  ([initialCards, userData]) => {
     userInfo.setUserInfo(userData);
     userId = userData._id;
     cardsList.renderItems(initialCards.reverse());
-  })
-  .catch((err) => {
-    console.log(`Ошибка: ${err}`);
-  });
+  }
+);
 
 //создания класса переноса информации о пользователе
 const userInfo = new UserInfo({
-  title: '.profile__title',
-  subtitle: '.profile__subtitle',
+  name: '.profile__title',
+  about: '.profile__subtitle',
   avatar: '.profile__avatar',
 });
-
-// api
-//   .getInitialUser()
-//   .then((res) => {
-//     userName.textContent = res.name;
-//     userJob.textContent = res.about;
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
 
 //создание класса попапа редактирования информации о пользователе
 const popupWithFormEditProfile = new PopupWithForm(
@@ -78,13 +61,13 @@ function submitEditProfileForm(data) {
     .editUser(data)
     .then((data) => {
       userInfo.setUserInfo(data);
+      popupWithFormEditProfile.close();
     })
     .catch((err) => {
       console.log(`Ошибка: ${err}`);
     })
     .finally(() => {
       popupWithFormEditProfile.renderLoading(false);
-      popupWithFormEditProfile.close();
     });
 }
 
@@ -102,13 +85,13 @@ function submitEditAvatarForm(data) {
     .editUserAvatar(data)
     .then((data) => {
       userInfo.setUserInfo(data);
+      popupWithFormEditAvatar.close();
     })
     .catch((err) => {
       console.log(`Ошибка: ${err}`);
     })
     .finally(() => {
       popupWithFormEditAvatar.renderLoading(false);
-      popupWithFormEditAvatar.close();
     });
 }
 
@@ -128,13 +111,13 @@ function submitCardForm(data) {
     .postCard(data)
     .then((res) => {
       cardsList.setItem(createCard(res));
+      popupWithFormCard.close();
     })
     .catch((err) => {
       console.log(`Ошибка: ${err}`);
     })
     .finally(() => {
       popupWithFormCard.renderLoading(false);
-      popupWithFormCard.close();
     });
 }
 
@@ -166,8 +149,8 @@ const createCard = (data) => {
         api
           .deleteCard(cardId)
           .then(() => {
-            popupWithConfirmation.close();
             card.deleteCard();
+            popupWithConfirmation.close();
           })
           .catch((err) => {
             console.log(`Ошибка: ${err}`);
@@ -200,22 +183,24 @@ const createCard = (data) => {
 
 //открытие попапа профиля
 openPopupEditButton.addEventListener('click', () => {
-  const { title, subtitle } = userInfo.getUserInfo();
-  editNameInput.value = title.textContent;
-  editJobInput.value = subtitle.textContent;
-  popupEditProfileValidator.toggleButtonState();
+  const data = userInfo.getUserInfo();
+  popupWithFormEditProfile.setInputValues({
+    name: data.name,
+    about: data.about,
+  });
+  popupEditProfileValidator.resetValidation();
   popupWithFormEditProfile.open();
 });
 
 //открытие попапа создания карточки
 popupCardOpenButton.addEventListener('click', () => {
-  popupCardValidator.toggleButtonState();
+  popupCardValidator.resetValidation();
   popupWithFormCard.open();
 });
 
 //открытие попапа редактирования аватара
 openPopupEditAvatarButton.addEventListener('click', () => {
-  popupCardValidator.toggleButtonState();
+  popupCardValidator.resetValidation();
   popupWithFormEditAvatar.open();
 });
 
