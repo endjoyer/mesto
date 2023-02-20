@@ -31,13 +31,15 @@ const api = new Api({
 });
 
 //прием данных о профиле и карточках с сервера. И их использование
-Promise.all([api.getInitialCards(), api.getInitialUser()]).then(
-  ([initialCards, userData]) => {
+Promise.all([api.getInitialCards(), api.getInitialUser()])
+  .then(([initialCards, userData]) => {
     userInfo.setUserInfo(userData);
     userId = userData._id;
     cardsList.renderItems(initialCards.reverse());
-  }
-);
+  })
+  .catch((err) => {
+    console.log(`Ошибка: ${err}`);
+  });
 
 //создания класса переноса информации о пользователе
 const userInfo = new UserInfo({
