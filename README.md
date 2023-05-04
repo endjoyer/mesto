@@ -7,6 +7,8 @@ _- "Mesto" - это интерактивная страница, где поль
 
 ### **Версии проекта**
 ***
+### **Версии проекта**
+***
 1. [Mesto (фронтенд + бэкенд)](https://github.com/endjoyer/express-mesto-gha)
 2. [Mesto (React авторизация)](https://github.com/endjoyer/react-mesto-auth)
 3. [Mesto (React)](https://github.com/endjoyer/mesto-react)
