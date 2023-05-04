@@ -4,6 +4,13 @@
 
 _- "Mesto" - это интерактивная страница, где пользователи могут делиться фотографиями. Она создана в рамках прохождения (**4-9 спринтов**) курса "веб-разработка" в Яндекс.Практикуме._
 
+### **Версии проекта**
+***
+1.[Mesto (фронтенд + бэкенд)] (https://github.com/endjoyer/express-mesto-gha)
+2. [Mesto (React авторизация)] (https://github.com/endjoyer/react-mesto-auth)
+3. [Mesto (React)](https://github.com/endjoyer/mesto-react)
+4. Mesto (версия на чистом JS) :star: *этот репозиторий*
+
 ### Стек технологий:
 
 `HTML 5`
@@ -61,7 +68,3 @@ _- "Mesto" - это интерактивная страница, где поль
 https://endjoyer.github.io/mesto/
 
 [Ссылка на макет в Figma](https://www.figma.com/file/3YKkZfiSS1K8s44YUQTLyJ/JavaScript.-Sprint-9?node-id=109%3A2&t=7tlU9OiVAkQQ1eAp-0)
-
-### Планы
-
-Следующих спринтах обучения в проекте будет реализован собственный бэкенд.
