@@ -7,10 +7,10 @@ _- "Mesto" - это интерактивная страница, где поль
 
 ### **Версии проекта**
 ***
-1.[Mesto (фронтенд + бэкенд)](https://github.com/endjoyer/express-mesto-gha)
+1. [Mesto (фронтенд + бэкенд)](https://github.com/endjoyer/express-mesto-gha)
 2. [Mesto (React авторизация)](https://github.com/endjoyer/react-mesto-auth)
 3. [Mesto (React)](https://github.com/endjoyer/mesto-react)
-4. Mesto (версия на чистом JS) 🔆: *этот репозиторий*
+4. Mesto (версия на чистом JS) 🔆 *этот репозиторий*
 
 ### Стек технологий:
 
